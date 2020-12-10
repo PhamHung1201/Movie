@@ -1,0 +1,122 @@
+ext.versions = [
+        androidCoreKtx      : '1.3.2',
+        androidXSupport     : '1.2.0',
+        cardView            : '1.0.0',
+        annotation          : '1.1.0',
+        recyclerview        : '1.1.0',
+        paging              : '2.1.2',
+        material            : '1.2.1',
+        archLifecycle       : '2.2.0',
+        kotlin              : '1.4.21',
+        dagger              : '2.29.1',
+        okhttp              : '3.13.1',
+        glide               : '4.11.0',
+        rxJava              : '2.2.7',
+        rxKotlin            : '2.3.0',
+        rxAndroid           : '2.1.1',
+        constraint          : '2.0.4',
+        rxBinding           : '2.1.1',
+        retrofit            : '2.5.0',
+        glideTransformations: '3.3.0',
+        parcelers           : '1.1.12',
+        threetenbp          : '1.3.8',
+        room                : '2.2.5',
+        youtubePlayer       : '10.0.4',
+        navigation          : '2.3.2',
+        compose             : '1.0.0-alpha04',
+
+        junit               : '4.12',
+        mockito             : '2.24.6',
+        assertj             : '2.9.0',
+        kotlinMockito       : '1.5.0',
+
+        espresso            : '3.1.0-alpha4',
+        uiAutomator         : '2.2.0-alpha4',
+        testButler          : '1.3.1',
+        rxIdler             : '0.9.0',
+        spoon               : '1.3.1'
+]
+
+ext.libraries = [
+        androidCoreKtx             : "androidx.core:core-ktx:$versions.androidCoreKtx",
+        androidSupportAppCompat    : "androidx.appcompat:appcompat:$versions.androidXSupport",
+        androidCardView            : "androidx.cardview:cardview:$versions.cardView",
+        annotation                 : "androidx.annotation:annotation:$versions.annotation",
+        navFragment                : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+        navUI                      : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+        androidRecyclerview        : "androidx.recyclerview:recyclerview:$versions.recyclerview",
+        androidConstraintLayout    : "androidx.constraintlayout:constraintlayout:$versions.constraint",
+        androidPaging              : "androidx.paging:paging-runtime:$versions.paging",
+        archViewModel              : "androidx.lifecycle:lifecycle-viewmodel:$versions.archLifecycle",
+        archLiveData               : "androidx.lifecycle:lifecycle-livedata:$versions.archLifecycle",
+        lifecycleExtensions        : "androidx.lifecycle:lifecycle-extensions:$versions.archLifecycle",
+        room                       : "androidx.room:room-runtime:$versions.room",
+        material                   : "com.google.android.material:material:$versions.androidSupport",
+        kotlinStd                  : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+        kotlinReflect              : "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin",
+        rxAndroid                  : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        rxJava                     : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+        rxKotlin                   : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+        okhttpLoggingInterceptor   : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
+        retrofit                   : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitGsonConverter      : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        retrofitRxJavaAdapter      : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        dagger                     : "com.google.dagger:dagger:$versions.dagger",
+        daggerAndroid              : "com.google.dagger:dagger-android-support:$versions.dagger",
+        glide                      : "com.github.bumptech.glide:glide:$versions.glide",
+
+        glideTransformations       : "jp.wasabeef:glide-transformations:$versions.glideTransformations",
+        parceler                   : "org.parceler:parceler-api:$versions.parcelers",
+        threetenbp                 : "org.threeten:threetenbp:$versions.threetenbp",
+        youtubePlayer              : "com.pierfrancescosoffritti.androidyoutubeplayer:core:$versions.youtubePlayer",
+
+        //compose libraries
+        composeUi                  : "androidx.compose.ui:ui:$versions.compose",
+        uiTooling                  : "androidx.ui:ui-tooling:$versions.compose",
+        composeFoundation          : "androidx.compose.foundation:foundation:$versions.compose",
+        composeMaterial            : "androidx.compose.material:material:$versions.compose",
+        composeMaterialIconCore    : "androidx.compose.material:material-icons-core:$versions.compose",
+        composeMaterialIconExtended: "androidx.compose.material:material-icons-extended:$versions.compose",
+        composeRuntimeRxjava       : "androidx.compose.runtime:runtime-rxjava2:$versions.compose",
+        composeRuntime             : "androidx.compose.runtime:runtime:$versions.compose",
+]
+
+ext.unitTestLibraries = [
+        junit          : "junit:junit:$versions.junit",
+        mockito        : "org.mockito:mockito-core:$versions.mockito",
+        assertj        : "org.assertj:assertj-core:$versions.assertj",
+        kotlinMockito  : "com.nhaarman:mockito-kotlin:$versions.kotlinMockito",
+        kotlinTest     : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
+        kotlinTestJunit: "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
+]
+
+ext.instrumentationTestLibraries = [
+        espressoCore       : ["androidx.test.espresso:espresso-core:$versions.espresso", {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        }],
+        espressoIntents    : ["androidx.test.espresso:espresso-intents:$versions.espresso", {
+            exclude module: 'support-annotations'
+        }],
+        espressoContrib    : ["androidx.test.espresso:espresso-contrib:$versions.espresso", {
+            exclude module: 'support-annotations'
+        }],
+        uiAutomator        : "androidx.test.uiautomator:uiautomator:$versions.uiAutomator",
+        okhttpMockWebServer: "com.squareup.okhttp3:mockwebserver:$versions.okhttp",
+        testButler         : "com.linkedin.testbutler:test-butler-library:$versions.testButler",
+        rxIdler            : "com.squareup.rx.idler:rx2-idler:$versions.rxIdler",
+        spoon              : "com.squareup.spoon:spoon-client:$versions.spoon"
+]
+
+ext.annotations = [
+        jsr250     : "javax.annotation:jsr250-api:$versions.jsr250",
+        jsr305     : "com.google.code.findbugs:jsr305:$versions.jsr305",
+        javaxInject: "javax.inject:javax.inject:$versions.javaxInject",
+        room       : "androidx.room:room-compiler:$versions.room",
+]
+
+ext.compilers = [
+        dagger       : "com.google.dagger:dagger-compiler:$versions.dagger",
+        daggerAndroid: "com.google.dagger:dagger-android-processor:$versions.dagger",
+        glide        : "com.github.bumptech.glide:compiler:$versions.glide",
+        parceler     : "org.parceler:parceler:$versions.parcelers",
+]

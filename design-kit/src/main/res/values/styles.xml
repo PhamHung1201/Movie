@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_212121</item>
+        <item name="colorPrimaryDark">@color/color_212121</item>
+        <item name="colorAccent">@color/color_d81b60</item>
+    </style>
+
+    <style name="ToolbarTitle">
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/color_ffffff</item>
+    </style>
+
+    <style name="HeaderCaptionStyle">
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="android:fontFamily">@font/ptc75f</item>
+    </style>
+
+    <style name="TitleCaptionStyle">
+        <item name="android:textSize">@dimen/text_size_h4</item>
+        <item name="android:fontFamily">@font/ptc55f</item>
+    </style>
+
+    <style name="TitleBoldStyle">
+        <item name="android:textSize">@dimen/text_size_h4</item>
+        <item name="android:fontFamily">@font/ptc75f</item>
+    </style>
+
+    <style name="TitleCollapsedAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="android:fontFamily">@font/ptc75f</item>
+    </style>
+
+    <style name="TitleExpandedAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="android:fontFamily">@font/ptc75f</item>
+    </style>
+
+    <style name="FontRegular">
+        <item name="android:fontFamily">@font/ptc55f</item>
+    </style>
+</resources>

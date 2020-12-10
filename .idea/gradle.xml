@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app-utils" />
+            <option value="$PROJECT_DIR$/card-kit" />
+            <option value="$PROJECT_DIR$/design-kit" />
+            <option value="$PROJECT_DIR$/feed" />
+            <option value="$PROJECT_DIR$/image-support" />
+            <option value="$PROJECT_DIR$/movie-support" />
+            <option value="$PROJECT_DIR$/network-support" />
+            <option value="$PROJECT_DIR$/ui-actor" />
+            <option value="$PROJECT_DIR$/ui-discover" />
+            <option value="$PROJECT_DIR$/ui-image" />
+            <option value="$PROJECT_DIR$/ui-trending" />
+            <option value="$PROJECT_DIR$/ui-video" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

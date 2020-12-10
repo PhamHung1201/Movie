@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android androidConfigurations
+
+dependencies {
+    implementation libraries.kotlinStd
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.retrofit
+    implementation libraries.retrofitRxJavaAdapter
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.retrofitRxJavaAdapter
+    implementation libraries.okhttpLoggingInterceptor
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+    kaptAndroidTest compilers.dagger
+}

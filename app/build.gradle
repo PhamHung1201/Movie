@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android androidConfigurations
+
+android {
+    defaultConfig {
+        applicationId appConfig.applicationId
+        testInstrumentationRunner instrumentationConfig.testInstrumentationRunner
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        def tmdbApiKey = properties.getProperty("tmdb_api_key", "")
+        def youtubeApiKey = properties.getProperty("youtube_api_key", "")
+
+        it.buildConfigField 'String', "TMDB_API_KEY", tmdbApiKey
+        it.buildConfigField 'String', "YOUTUBE_API_KEY", youtubeApiKey
+
+        it.resValue 'string', "api_key", tmdbApiKey
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':app-utils')
+    implementation project(':card-kit')
+    implementation project(':network-support')
+    implementation project(':movie-support')
+    implementation project(':feed')
+    implementation project(':image-support')
+    implementation project(':ui-actor')
+    implementation project(':ui-discover')
+    implementation project(':ui-image')
+    implementation project(':ui-trending')
+    implementation project(':ui-video')
+
+    implementation libraries.kotlinStd
+    implementation libraries.kotlinReflect
+    implementation libraries.androidSupportAppCompat
+    implementation libraries.archViewModel
+    implementation libraries.archLiveData
+    implementation libraries.lifecycleExtensions
+    implementation libraries.material
+    implementation libraries.androidCardView
+    implementation libraries.androidConstraintLayout
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava
+    implementation libraries.rxKotlin
+    api libraries.dagger
+    api libraries.daggerAndroid
+    implementation libraries.retrofit
+    implementation libraries.retrofitRxJavaAdapter
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.retrofitRxJavaAdapter
+    implementation libraries.okhttpLoggingInterceptor
+    implementation libraries.glide
+    implementation libraries.glideTransformations
+    implementation libraries.parceler
+    implementation libraries.threetenbp
+    implementation libraries.youtubePlayer
+    implementation libraries.navFragment
+    implementation libraries.navUI
+
+    implementation libraries.composeFoundation
+    implementation libraries.composeMaterial
+    implementation libraries.composeRuntime
+    implementation libraries.composeUi
+    implementation libraries.uiTooling
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+    kapt compilers.parceler
+    kaptAndroidTest compilers.dagger
+
+    testImplementation unitTestLibraries.junit
+    testImplementation unitTestLibraries.assertj
+    testImplementation unitTestLibraries.kotlinMockito
+    testImplementation unitTestLibraries.kotlinTest
+    testImplementation unitTestLibraries.kotlinTestJunit
+
+    androidTestImplementation instrumentationTestLibraries.espressoCore
+    androidTestImplementation instrumentationTestLibraries.espressoIntents
+    androidTestImplementation instrumentationTestLibraries.espressoContrib
+    androidTestImplementation instrumentationTestLibraries.espressoIntents
+    androidTestImplementation instrumentationTestLibraries.okhttpMockWebServer
+    androidTestImplementation instrumentationTestLibraries.uiAutomator
+    androidTestImplementation instrumentationTestLibraries.testButler
+    androidTestImplementation instrumentationTestLibraries.rxIdler
+    androidTestImplementation instrumentationTestLibraries.spoon
+    androidTestImplementation 'com.agoda.kakao:kakao:2.0.0'
+    androidTestImplementation unitTestLibraries.assertj
+}

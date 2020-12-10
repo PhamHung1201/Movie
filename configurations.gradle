@@ -1,0 +1,50 @@
+ext.versionConfig = [
+        major: 0,
+        minor: 0,
+        patch: 1
+]
+
+def buildCode = devOptimizationEnabled() ? devVersionCode() : secondsSinceProjectStartDate()
+def buildTime = devOptimizationEnabled() ? "devOptimization" : buildTime()
+
+ext.appConfig = [
+        compileSdk            : 30,
+        buildTools            : "30.0.2",
+        minSdk                : 24,
+        targetSdk             : 30,
+        applicationId         : "com.hungpham.movie",
+        multiDexEnabled       : true,
+        versionCode           : buildCode,
+        versionName           : "${versionConfig.major}.${versionConfig.minor}.${versionConfig.patch}",
+        buildTime             : "${buildTime}",
+        devOptimizationEnabled: devOptimizationEnabled(),
+]
+
+ext.kpConfig = [
+        applicationId: "com.hungpham.movie"
+]
+
+ext.instrumentationConfig = [
+        testInstrumentationRunner: "com.hungpham.movie.EspressoTestRunner",
+]
+
+def devOptimizationEnabled() {
+    def devOptimizationEnabled = project.getProperties().get("devOptimization")
+    return devOptimizationEnabled != null ? devOptimizationEnabled : false
+}
+
+def devVersionCode() {
+    return versionConfig.major * 100 + versionConfig.minor * 10 + version.patch
+}
+
+static def secondsSinceProjectStartDate() {
+    def projectStartDate = new Date(1505059200000L)//Mon Sep 11 00:00:00 2017 +0800
+    def currentDate = new Date()
+    return (currentDate.getTime() - projectStartDate.getTime()) / 1000 as int
+}
+
+static def buildTime() {
+    def df = new java.text.SimpleDateFormat("yyyy-MM-dd-HH:mm")
+    df.setTimeZone(TimeZone.getTimeZone("SGT"))
+    return df.format(new Date())
+}
