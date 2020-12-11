@@ -4,9 +4,7 @@ import com.hungpham.movie_support.*
 import com.hungpham.movie_support.internal.response.*
 import io.reactivex.Single
 
-/**
- * Created by hung.pham on 10/11/20.
- */
+
 class MovieProviderImpl(
     private val movieServices: MovieServices,
     private val imageDataFactory: ImageDataFactory
@@ -17,8 +15,8 @@ class MovieProviderImpl(
             .map(this::mapTrendingMovie)
     }
 
-    override fun getDiscoverMovie(): Single<List<MovieData>> {
-        return movieServices.getDiscoverMovies()
+    override fun getDiscoverMovie(filters: Map<String, String>): Single<List<MovieData>> {
+        return movieServices.getDiscoverMovies(filters)
             .map(this::mapDiscoverMovie)
     }
 
@@ -40,6 +38,16 @@ class MovieProviderImpl(
     override fun getActors(): Single<List<ActorData>> {
         return movieServices.getPopularActors()
             .map(this::createActorData)
+    }
+
+    override fun getPopularTvShows(): Single<List<TvShowData>> {
+        return movieServices.getPopularTvShows()
+            .map(this::createTvShowData)
+    }
+
+    override fun getDiscoverTvShowBy(filters: Map<String, String>): Single<List<TvShowData>> {
+        return movieServices.getDiscoverTvShows(filters)
+            .map(this::createTvShowData)
     }
 
     private fun mapDiscoverMovie(response: DiscoverMovieResponse): List<MovieData> {
@@ -143,6 +151,18 @@ class MovieProviderImpl(
                     it.getId(),
                     it.getName(),
                     imageDataFactory.create(it.getProfilePath()),
+                    it.getPopularity()
+                )
+            }
+    }
+
+    private fun createTvShowData(res: TvShowResponse): List<TvShowData> {
+        return res.getTvShows()
+            .map {
+                TvShowData(
+                    it.getId(),
+                    it.getName(),
+                    imageDataFactory.create(it.getPosterPath()),
                     it.getPopularity()
                 )
             }

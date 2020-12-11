@@ -45,9 +45,9 @@ dependencies {
     implementation project(':feed')
     implementation project(':image-support')
     implementation project(':ui-actor')
-    implementation project(':ui-discover')
+    implementation project(':ui-movie')
     implementation project(':ui-image')
-    implementation project(':ui-trending')
+    implementation project(':ui-tv-show')
     implementation project(':ui-video')
 
     implementation libraries.kotlinStd

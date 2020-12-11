@@ -7,6 +7,8 @@ object FeedOrder {
     val order = listOf(
         CardType.DISCOVER,
         CardType.TRENDING,
+        CardType.DISCOVER_TV_SHOW,
+        CardType.TV_SHOW,
         CardType.ACTOR
     )
 }

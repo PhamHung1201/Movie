@@ -24,7 +24,7 @@ data class PopularActorResponse(
         @SerializedName("id") private val id: Int?,
         @SerializedName("profile_path") private val profilePath: String?,
         @SerializedName("name") private val name: String?,
-        @SerializedName("popularity") private val popularity: Int?
+        @SerializedName("popularity") private val popularity: Float?
     ) {
         fun getId(): Long {
             return id?.toLong() ?: -1
@@ -39,7 +39,7 @@ data class PopularActorResponse(
         }
 
         fun getPopularity(): Int {
-            return popularity ?: 0
+            return popularity?.toInt() ?: 0
         }
 
     }

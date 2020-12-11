@@ -19,7 +19,7 @@ class FeedPresenter(
             .subscribe({
                 view.updateItems(it)
             }, {
-                Log.e("FeedPresenter", "fetch data failed")
+                Log.e("FeedPresenter", "fetch data failed: ${it.message}")
             })
             .let(compositeDisposable::add)
     }

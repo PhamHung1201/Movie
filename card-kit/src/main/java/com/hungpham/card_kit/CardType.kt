@@ -6,5 +6,7 @@ enum class CardType(val type: Int) {
     TRENDING(1),
     VIDEO(2),
     IMAGE(3),
-    ACTOR(4)
+    ACTOR(4),
+    TV_SHOW(5),
+    DISCOVER_TV_SHOW(6)
 }

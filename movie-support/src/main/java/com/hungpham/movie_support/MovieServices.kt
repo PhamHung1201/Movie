@@ -6,14 +6,12 @@ import com.hungpham.movie_support.internal.UpcomingMoviesResponse
 import com.hungpham.movie_support.internal.response.*
 import io.reactivex.Observable
 import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface MovieServices {
 
     @GET("discover/movie")
-    fun getDiscoverMovies(@Query("page") page: Int = 1): Single<DiscoverMovieResponse>
+    fun getDiscoverMovies(@QueryMap filters: Map<String, String>): Single<DiscoverMovieResponse>
 
     @GET("trending/movie/day")
     fun getTrendingMovies(@Query("page") page: Int = 1): Single<TrendingMoviesResponse>
@@ -42,4 +40,9 @@ interface MovieServices {
     @GET("person/popular")
     fun getPopularActors(@Query("page") page: Int = 1): Single<PopularActorResponse>
 
+    @GET("tv/popular")
+    fun getPopularTvShows(@Query("page") page: Int = 1): Single<TvShowResponse>
+
+    @GET("discover/tv")
+    fun getDiscoverTvShows(@QueryMap filters: Map<String, String>): Single<TvShowResponse>
 }

@@ -11,11 +11,7 @@ class ImageDataSource(private val movieProvider: MovieProvider, private val fact
     CardDataProvider {
 
     override fun dataSource(): Observable<CardItem> {
-        TODO("")
-    }
-
-    override fun dataSource(id: Long): Observable<CardItem> {
-        return movieProvider.getImageOfAMovie(id)
+        return movieProvider.getImageOfAMovie(1)
             .toObservable()
             .map {
                 ImageCardItem(factory.createImages(it))

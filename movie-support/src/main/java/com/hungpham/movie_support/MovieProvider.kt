@@ -4,7 +4,7 @@ import io.reactivex.Single
 
 interface MovieProvider {
 
-    fun getDiscoverMovie(): Single<List<MovieData>>
+    fun getDiscoverMovie(filters: Map<String, String>): Single<List<MovieData>>
 
     fun getTrendingMovie(): Single<List<MovieData>>
 
@@ -15,4 +15,8 @@ interface MovieProvider {
     fun getImageOfAMovie(movieId: Long): Single<ImageOfMovieData>
 
     fun getActors(): Single<List<ActorData>>
+
+    fun getPopularTvShows(): Single<List<TvShowData>>
+
+    fun getDiscoverTvShowBy(filters: Map<String, String>): Single<List<TvShowData>>
 }

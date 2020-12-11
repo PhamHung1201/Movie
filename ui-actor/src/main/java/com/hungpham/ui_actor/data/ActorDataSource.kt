@@ -21,8 +21,4 @@ class ActorDataSource(private val movieProvider: MovieProvider) : CardDataProvid
                 ActorCardItem(it)
             }
     }
-
-    override fun dataSource(id: Long): Observable<CardItem> {
-        TODO("Not yet implemented")
-    }
 }

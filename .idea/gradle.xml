@@ -19,9 +19,10 @@
             <option value="$PROJECT_DIR$/movie-support" />
             <option value="$PROJECT_DIR$/network-support" />
             <option value="$PROJECT_DIR$/ui-actor" />
-            <option value="$PROJECT_DIR$/ui-discover" />
+            <option value="$PROJECT_DIR$/ui-genre" />
             <option value="$PROJECT_DIR$/ui-image" />
-            <option value="$PROJECT_DIR$/ui-trending" />
+            <option value="$PROJECT_DIR$/ui-movie" />
+            <option value="$PROJECT_DIR$/ui-tv-show" />
             <option value="$PROJECT_DIR$/ui-video" />
           </set>
         </option>

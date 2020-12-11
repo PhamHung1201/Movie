@@ -18,12 +18,4 @@ class VideoDataSource(private val movieProvider: MovieProvider, private val fact
                 VideoCardItem(factory.createVideos(it))
             }
     }
-
-    override fun dataSource(id: Long): Observable<CardItem> {
-        return movieProvider.getVideoOfAMovie(id)
-            .toObservable()
-            .map {
-                VideoCardItem(factory.createVideos(it))
-            }
-    }
 }

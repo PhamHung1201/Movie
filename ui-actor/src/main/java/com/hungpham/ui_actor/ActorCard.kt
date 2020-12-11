@@ -20,6 +20,6 @@ class ActorCard(private val actorAdapter: Lazy<ActorAdapter>): Card {
     }
 
     override fun onBindViewHolder(item: Any, holder: CardViewHolder) {
-        (holder as ActorHorizontalViewHolder).onBind(item as Actor)
+        (holder as ActorHorizontalViewHolder).onBind(item as ActorCardItem)
     }
 }

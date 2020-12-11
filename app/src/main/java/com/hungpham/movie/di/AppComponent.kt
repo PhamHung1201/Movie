@@ -9,9 +9,9 @@ import com.hungpham.movie_support.MovieServices
 import com.hungpham.movie.MovieApplication
 import com.hungpham.movie.movies.di.MovieViewModelModule
 import com.hungpham.ui_actor.di.ActorUiModule
-import com.hungpham.ui_discover.di.DiscoverUiModule
 import com.hungpham.ui_image.di.ImageUiModule
-import com.hungpham.ui_trending.di.TrendingUiModule
+import com.hungpham.ui_movie.di.MovieUiModule
+import com.hungpham.ui_tv_show.di.TvShowUiModule
 import com.hungpham.ui_video.di.VideoUiModule
 import dagger.BindsInstance
 import dagger.Component
@@ -24,9 +24,9 @@ import javax.inject.Singleton
         ImageSupportModule::class,
         MovieViewModelModule::class,
         ActorUiModule::class,
-        DiscoverUiModule::class,
+        MovieUiModule::class,
         ImageUiModule::class,
-        TrendingUiModule::class,
+        TvShowUiModule::class,
         VideoUiModule::class
     ]
 )

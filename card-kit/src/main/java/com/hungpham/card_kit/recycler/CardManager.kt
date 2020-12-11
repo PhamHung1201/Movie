@@ -13,7 +13,7 @@ class CardManager(private val layoutInflater: LayoutInflater) {
 
     fun addCard(card: Card): CardManager {
         if (cards.get(card.getCardType().type) != null) {
-            throw IllegalArgumentException("A Card is already registered for the viewType = ${card.getCardType()}")
+            throw IllegalArgumentException("${card.toString()} is already registered for the viewType = ${card.getCardType()}")
         }
         cards.put(card.getCardType().type, card)
         return this

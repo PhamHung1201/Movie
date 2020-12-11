@@ -8,7 +8,7 @@ import io.reactivex.Observable
 
 
 class FeedProvider(private val dataSources: Map<CardType, CardDataProvider>) {
-
+    
     fun fetch(): Observable<CardItem> {
         val sources = arrayListOf<CardDataProvider>()
 
@@ -18,6 +18,8 @@ class FeedProvider(private val dataSources: Map<CardType, CardDataProvider>) {
             )
             sources.add(source)
         }
+
+        //TODO Refactor this part to improve loading performance
 
         return Observable.concat(sources.map { it.dataSource() })
     }

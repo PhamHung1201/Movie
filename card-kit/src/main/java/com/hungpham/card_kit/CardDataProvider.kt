@@ -5,6 +5,4 @@ import io.reactivex.Observable
 interface CardDataProvider {
 
     fun dataSource(): Observable<CardItem>
-
-    fun dataSource(id: Long): Observable<CardItem>
 }
