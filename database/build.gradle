@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android androidConfigurations
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation libraries.kotlinStd
+    implementation libraries.kotlinReflect
+    implementation libraries.KotlinCoroutines
+
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.rxJava
+    implementation libraries.room
+    implementation libraries.roomKtx
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+    kapt compilers.room
+}

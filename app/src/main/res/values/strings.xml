@@ -6,5 +6,6 @@
     <string name="movies_upcoming">Upcoming</string>
     <string name="movies_top_rated">Top Rated</string>
     <string name="foundation_movies">Movies</string>
-    <string name="foundation_music">Music</string>
+    <string name="foundation_search">Search</string>
+    <string name="foundation_profile">Profile</string>
 </resources>

@@ -7,7 +7,8 @@ ext.versions = [
         paging              : '2.1.2',
         material            : '1.2.1',
         archLifecycle       : '2.2.0',
-        kotlin              : '1.4.21',
+        kotlin              : '1.4.10',
+        KotlinCoroutines    : '1.3.9',
         dagger              : '2.29.1',
         okhttp              : '3.13.1',
         glide               : '4.11.0',
@@ -51,9 +52,13 @@ ext.libraries = [
         archLiveData               : "androidx.lifecycle:lifecycle-livedata:$versions.archLifecycle",
         lifecycleExtensions        : "androidx.lifecycle:lifecycle-extensions:$versions.archLifecycle",
         room                       : "androidx.room:room-runtime:$versions.room",
+        roomKtx                    : "androidx.room:room-ktx:$versions.room",
         material                   : "com.google.android.material:material:$versions.androidSupport",
+
         kotlinStd                  : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
         kotlinReflect              : "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin",
+        KotlinCoroutines           : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.KotlinCoroutines",
+
         rxAndroid                  : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
         rxJava                     : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
         rxKotlin                   : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
@@ -111,7 +116,6 @@ ext.annotations = [
         jsr250     : "javax.annotation:jsr250-api:$versions.jsr250",
         jsr305     : "com.google.code.findbugs:jsr305:$versions.jsr305",
         javaxInject: "javax.inject:javax.inject:$versions.javaxInject",
-        room       : "androidx.room:room-compiler:$versions.room",
 ]
 
 ext.compilers = [
@@ -119,4 +123,5 @@ ext.compilers = [
         daggerAndroid: "com.google.dagger:dagger-android-processor:$versions.dagger",
         glide        : "com.github.bumptech.glide:compiler:$versions.glide",
         parceler     : "org.parceler:parceler:$versions.parcelers",
+        room         : "androidx.room:room-compiler:$versions.room",
 ]

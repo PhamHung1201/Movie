@@ -18,6 +18,10 @@ android {
         }
     }
 
+    buildFeatures {
+        compose true
+    }
+
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("local.properties").newDataInputStream())
@@ -43,6 +47,7 @@ dependencies {
     implementation project(':network-support')
     implementation project(':movie-support')
     implementation project(':feed')
+    implementation project(':login')
     implementation project(':image-support')
     implementation project(':ui-actor')
     implementation project(':ui-movie')

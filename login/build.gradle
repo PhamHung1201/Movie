@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android androidConfigurations
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation libraries.kotlinStd
+    implementation libraries.kotlinReflect
+
+    implementation project(':card-kit')
+    implementation project(':design-kit')
+    implementation project(':movie-support')
+    implementation project(':image-support')
+
+    implementation libraries.androidConstraintLayout
+    implementation libraries.androidCardView
+    implementation libraries.androidRecyclerview
+    implementation libraries.androidSupportAppCompat
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.rxJava
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
+    implementation libraries.composeFoundation
+    implementation libraries.composeMaterial
+    implementation libraries.composeRuntime
+    implementation libraries.composeUi
+    implementation libraries.uiTooling
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}
+
+android {
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+}

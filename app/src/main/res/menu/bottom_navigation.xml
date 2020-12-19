@@ -6,7 +6,11 @@
         android:icon="@drawable/ic_movie"
         android:title="@string/foundation_movies" />
     <item
+        android:id="@+id/search_dest"
+        android:icon="@drawable/ic_music"
+        android:title="@string/foundation_search" />
+    <item
         android:id="@+id/profile_dest"
         android:icon="@drawable/ic_music"
-        android:title="@string/foundation_music" />
+        android:title="@string/foundation_profile" />
 </menu>
