@@ -12,7 +12,6 @@ import com.hungpham.feed.presenter.FeedProvider
 import com.hungpham.feed.ui.FeedView
 import dagger.Module
 import dagger.Provides
-import io.reactivex.disposables.CompositeDisposable
 
 
 @Module
@@ -33,7 +32,7 @@ object FeedModule {
 
     @Provides
     fun provideFeedPresenter(view: FeedView, feedProvider: FeedProvider): FeedPresenter {
-        return FeedPresenter(view, feedProvider, CompositeDisposable())
+        return FeedPresenter(view, feedProvider)
     }
 
     @Provides

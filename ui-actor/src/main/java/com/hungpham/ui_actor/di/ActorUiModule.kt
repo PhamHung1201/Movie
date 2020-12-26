@@ -4,8 +4,8 @@ import com.hungpham.card_kit.Card
 import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardKey
 import com.hungpham.card_kit.CardType
+import com.hungpham.data.DataRepository
 import com.hungpham.image_support.ImageDownloader
-import com.hungpham.movie_support.MovieProvider
 import com.hungpham.ui_actor.ActorAdapter
 import com.hungpham.ui_actor.ActorCard
 import com.hungpham.ui_actor.data.ActorDataSource
@@ -27,8 +27,8 @@ object ActorUiModule {
     @Provides
     @IntoMap
     @CardKey(CardType.ACTOR)
-    fun provideActorDataSource(movieProvider: MovieProvider): CardDataProvider {
-        return ActorDataSource(movieProvider)
+    fun provideActorDataSource(dataRepository: DataRepository): CardDataProvider {
+        return ActorDataSource(dataRepository)
     }
 
     @Provides

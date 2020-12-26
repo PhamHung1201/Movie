@@ -4,7 +4,7 @@ import com.hungpham.card_kit.Card
 import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardKey
 import com.hungpham.card_kit.CardType
-import com.hungpham.movie_support.MovieProvider
+import com.hungpham.data.DataRepository
 import com.hungpham.ui_movie.internal.discover.DiscoverMovieAdapter
 import com.hungpham.ui_movie.internal.discover.DiscoverMovieCard
 import com.hungpham.ui_movie.internal.discover.data.DiscoverDataSource
@@ -27,7 +27,7 @@ object DiscoverUiModule {
     @Provides
     @IntoMap
     @CardKey(CardType.DISCOVER)
-    fun provideDiscoverDataSource(movieProvider: MovieProvider): CardDataProvider {
-        return DiscoverDataSource(movieProvider)
+    fun provideDiscoverDataSource(dataRepository: DataRepository): CardDataProvider {
+        return DiscoverDataSource(dataRepository)
     }
 }

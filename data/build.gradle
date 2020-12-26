@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android androidConfigurations
+
+dependencies {
+    implementation libraries.kotlinStd
+    implementation libraries.kotlinReflect
+    implementation libraries.coroutinesAndroid
+
+    implementation project(':model')
+
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.retrofit
+    api libraries.room
+    implementation libraries.roomKtx
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+    kapt compilers.room
+
+    kaptAndroidTest compilers.dagger
+}

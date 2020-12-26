@@ -4,8 +4,8 @@ import com.hungpham.card_kit.Card
 import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardKey
 import com.hungpham.card_kit.CardType
+import com.hungpham.data.DataRepository
 import com.hungpham.image_support.ImageDownloader
-import com.hungpham.movie_support.MovieProvider
 import com.hungpham.ui_image.ImageAdapter
 import com.hungpham.ui_image.ImageCard
 import com.hungpham.ui_image.data.ImageDataSource
@@ -29,7 +29,7 @@ object ImageUiModule {
     @Provides
     @IntoMap
     @CardKey(CardType.IMAGE)
-    fun provideImageDataSource(movieProvider: MovieProvider): CardDataProvider {
-        return ImageDataSource(movieProvider, ImageFactory())
+    fun provideImageDataSource(dataRepository: DataRepository): CardDataProvider {
+        return ImageDataSource(dataRepository, ImageFactory())
     }
 }

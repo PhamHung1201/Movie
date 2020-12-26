@@ -13,12 +13,12 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app-utils" />
             <option value="$PROJECT_DIR$/card-kit" />
-            <option value="$PROJECT_DIR$/database" />
+            <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/design-kit" />
             <option value="$PROJECT_DIR$/feed" />
             <option value="$PROJECT_DIR$/image-support" />
             <option value="$PROJECT_DIR$/login" />
-            <option value="$PROJECT_DIR$/movie-support" />
+            <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/network-support" />
             <option value="$PROJECT_DIR$/ui-actor" />
             <option value="$PROJECT_DIR$/ui-genre" />

@@ -60,6 +60,11 @@ class FeedScreen : Fragment(), FeedView {
         presenter.fetchData()
     }
 
+    override fun onPause() {
+        presenter.clear()
+        super.onPause()
+    }
+
     override fun updateItems(item: CardItem) {
         this.delegationAdapter.setItem(item)
     }

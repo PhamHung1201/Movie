@@ -5,7 +5,7 @@ import com.hungpham.login.LoginActivity
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [LoginModule::class])
+@Component(modules = [LoginModule::class], dependencies = [LoginDependencies::class])
 interface LoginComponent {
 
     fun inject(activity: LoginActivity)
@@ -14,6 +14,8 @@ interface LoginComponent {
     interface Builder {
         @BindsInstance
         fun bindContext(context: Context): Builder
+
+        fun bindDependencies(dependencies: LoginDependencies): Builder
 
         fun build(): LoginComponent
     }

@@ -1,6 +1,6 @@
 package com.hungpham.ui_image.data
 
-import com.hungpham.movie_support.ImageOfMovieData
+import com.hungpham.data.internal.movie.ImageOfMovieData
 import com.hungpham.ui_image.Image
 
 

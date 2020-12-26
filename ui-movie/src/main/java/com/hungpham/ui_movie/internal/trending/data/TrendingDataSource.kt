@@ -2,27 +2,21 @@ package com.hungpham.ui_movie.internal.trending.data
 
 import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardItem
-import com.hungpham.movie_support.MovieProvider
+import com.hungpham.data.DataRepository
+import com.hungpham.ui_movie.internal.trending.TrendingCardItem
 import com.hungpham.ui_movie.internal.trending.TrendingMovie
-import io.reactivex.Observable
 
+class TrendingDataSource(private val dataRepository: DataRepository) : CardDataProvider {
 
-class TrendingDataSource(private val movieProvider: MovieProvider) : CardDataProvider {
-
-    override fun dataSource(): Observable<CardItem> {
-        return movieProvider.getTrendingMovie()
-            .toObservable()
-            .map { movies ->
-                return@map movies.map {
-                    TrendingMovie(
-                        id = it.id,
-                        name = it.name,
-                        it.poster.medium
-                    )
-                }
-            }
-            .map {
-                com.hungpham.ui_movie.internal.trending.TrendingCardItem("You will see Trending", it)
-            }
+    override suspend fun dataSource(): CardItem {
+        val trendingMovie = dataRepository.getTrendingMovie()
+        val items = trendingMovie.map {
+            TrendingMovie(
+                id = it.id,
+                name = it.name,
+                it.poster.medium
+            )
+        }
+        return TrendingCardItem("You will see Trending", items)
     }
 }

@@ -4,7 +4,7 @@ import com.hungpham.card_kit.Card
 import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardKey
 import com.hungpham.card_kit.CardType
-import com.hungpham.movie_support.MovieProvider
+import com.hungpham.data.DataRepository
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -24,7 +24,7 @@ object TrendingUiModule {
     @Provides
     @IntoMap
     @CardKey(CardType.TRENDING)
-    fun provideTrendingDataSource(movieProvider: MovieProvider): CardDataProvider {
-        return com.hungpham.ui_movie.internal.trending.data.TrendingDataSource(movieProvider)
+    fun provideTrendingDataSource(dataRepository: DataRepository): CardDataProvider {
+        return com.hungpham.ui_movie.internal.trending.data.TrendingDataSource(dataRepository)
     }
 }

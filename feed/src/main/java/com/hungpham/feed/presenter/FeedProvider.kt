@@ -4,12 +4,12 @@ import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardItem
 import com.hungpham.card_kit.CardType
 import com.hungpham.feed.ui.FeedOrder
-import io.reactivex.Observable
-
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class FeedProvider(private val dataSources: Map<CardType, CardDataProvider>) {
-    
-    fun fetch(): Observable<CardItem> {
+
+    suspend fun fetch(): Flow<CardItem> {
         val sources = arrayListOf<CardDataProvider>()
 
         FeedOrder.order.forEach {
@@ -19,8 +19,11 @@ class FeedProvider(private val dataSources: Map<CardType, CardDataProvider>) {
             sources.add(source)
         }
 
-        //TODO Refactor this part to improve loading performance
-
-        return Observable.concat(sources.map { it.dataSource() })
+        return flow<CardItem> {
+            sources.forEach {
+                val data = it.dataSource()
+                emit(data)
+            }
+        }
     }
 }

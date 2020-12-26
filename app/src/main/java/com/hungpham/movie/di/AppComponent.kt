@@ -1,16 +1,17 @@
 package com.hungpham.movie.di
 
 import android.app.Application
+import com.hungpham.data.DataModule
+import com.hungpham.data.DataRepository
 import com.hungpham.feed.di.FeedDependencies
 import com.hungpham.image_support.ImageDownloader
 import com.hungpham.image_support.ImageSupportModule
-import com.hungpham.movie_support.MovieProvider
-import com.hungpham.movie_support.MovieServices
+import com.hungpham.login.di.LoginDependencies
 import com.hungpham.movie.MovieApplication
-import com.hungpham.movie.movies.di.MovieViewModelModule
 import com.hungpham.ui_actor.di.ActorUiModule
 import com.hungpham.ui_image.di.ImageUiModule
 import com.hungpham.ui_movie.di.MovieUiModule
+import com.hungpham.movie.splash.di.SplashDependencies
 import com.hungpham.ui_tv_show.di.TvShowUiModule
 import com.hungpham.ui_video.di.VideoUiModule
 import dagger.BindsInstance
@@ -22,23 +23,21 @@ import javax.inject.Singleton
     modules = [
         ApplicationModule::class,
         ImageSupportModule::class,
-        MovieViewModelModule::class,
         ActorUiModule::class,
+        DataModule::class,
         MovieUiModule::class,
         ImageUiModule::class,
         TvShowUiModule::class,
         VideoUiModule::class
     ]
 )
-interface AppComponent : FeedDependencies {
+interface AppComponent : FeedDependencies, LoginDependencies, SplashDependencies {
 
     fun inject(application: MovieApplication)
 
     fun provideImageDownloader(): ImageDownloader
 
-    fun provideMovieServices(): MovieServices
-
-    fun provideMovieProvider(): MovieProvider
+    fun provideDataRepository(): DataRepository
 
     @Component.Factory
     interface Factory {

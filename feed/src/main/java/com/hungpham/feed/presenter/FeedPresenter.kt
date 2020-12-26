@@ -1,26 +1,30 @@
 package com.hungpham.feed.presenter
 
-import android.util.Log
 import com.hungpham.feed.ui.FeedView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.cancel
 
 class FeedPresenter(
     private val view: FeedView,
     private val provider: FeedProvider,
-    private val compositeDisposable: CompositeDisposable
 ) {
 
+    private val scope = CoroutineScope(Job() + Dispatchers.IO)
+
     fun fetchData() {
-        provider.fetch()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe({
-                view.updateItems(it)
-            }, {
-                Log.e("FeedPresenter", "fetch data failed: ${it.message}")
-            })
-            .let(compositeDisposable::add)
+        scope.launch {
+            provider.fetch()
+                .collect {
+                    view.updateItems(it)
+                }
+        }
+    }
+
+    fun clear() {
+        scope.cancel()
     }
 }

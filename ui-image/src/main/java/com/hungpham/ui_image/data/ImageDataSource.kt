@@ -2,19 +2,17 @@ package com.hungpham.ui_image.data
 
 import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardItem
-import com.hungpham.movie_support.MovieProvider
+import com.hungpham.data.DataRepository
 import com.hungpham.ui_image.ImageCardItem
-import io.reactivex.Observable
 
+class ImageDataSource(
+    private val dataRepository: DataRepository,
+    private val factory: ImageFactory
+) : CardDataProvider {
 
-class ImageDataSource(private val movieProvider: MovieProvider, private val factory: ImageFactory) :
-    CardDataProvider {
+    override suspend fun dataSource(): CardItem {
+        val imageOfAMovie = dataRepository.getImageOfAMovie(1)
 
-    override fun dataSource(): Observable<CardItem> {
-        return movieProvider.getImageOfAMovie(1)
-            .toObservable()
-            .map {
-                ImageCardItem(factory.createImages(it))
-            }
+        return ImageCardItem(factory.createImages(imageOfAMovie))
     }
 }

@@ -8,7 +8,7 @@ ext.versions = [
         material            : '1.2.1',
         archLifecycle       : '2.2.0',
         kotlin              : '1.4.10',
-        KotlinCoroutines    : '1.3.9',
+        kotlinCoroutines    : '1.4.1',
         dagger              : '2.29.1',
         okhttp              : '3.13.1',
         glide               : '4.11.0',
@@ -17,7 +17,7 @@ ext.versions = [
         rxAndroid           : '2.1.1',
         constraint          : '2.0.4',
         rxBinding           : '2.1.1',
-        retrofit            : '2.5.0',
+        retrofit            : '2.9.0',
         glideTransformations: '3.3.0',
         parcelers           : '1.1.12',
         threetenbp          : '1.3.8',
@@ -40,7 +40,7 @@ ext.versions = [
 
 ext.libraries = [
         androidCoreKtx             : "androidx.core:core-ktx:$versions.androidCoreKtx",
-        androidSupportAppCompat    : "androidx.appcompat:appcompat:$versions.androidXSupport",
+        androidAppCompat           : "androidx.appcompat:appcompat:$versions.androidXSupport",
         androidCardView            : "androidx.cardview:cardview:$versions.cardView",
         annotation                 : "androidx.annotation:annotation:$versions.annotation",
         navFragment                : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
@@ -57,7 +57,7 @@ ext.libraries = [
 
         kotlinStd                  : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
         kotlinReflect              : "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin",
-        KotlinCoroutines           : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.KotlinCoroutines",
+        coroutinesAndroid          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlinCoroutines",
 
         rxAndroid                  : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
         rxJava                     : "io.reactivex.rxjava2:rxjava:$versions.rxJava",

@@ -2,15 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 android androidConfigurations
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation libraries.kotlinStd
     implementation libraries.kotlinReflect
-    implementation libraries.rxJava
     implementation libraries.dagger
     implementation libraries.daggerAndroid
     implementation libraries.glide
@@ -18,15 +15,10 @@ dependencies {
 
     kapt compilers.dagger
     kapt compilers.daggerAndroid
-    kaptAndroidTest compilers.dagger
 
     testImplementation unitTestLibraries.junit
     testImplementation unitTestLibraries.assertj
     testImplementation unitTestLibraries.kotlinMockito
     testImplementation unitTestLibraries.kotlinTest
     testImplementation unitTestLibraries.kotlinTestJunit
-    androidTestImplementation instrumentationTestLibraries.testButler
-    androidTestImplementation instrumentationTestLibraries.rxIdler
-    androidTestImplementation instrumentationTestLibraries.spoon
-    androidTestImplementation unitTestLibraries.assertj
 }

@@ -6,27 +6,20 @@ apply plugin: 'kotlin-kapt'
 android androidConfigurations
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation libraries.kotlinStd
     implementation libraries.kotlinReflect
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation libraries.coroutinesAndroid
 
     implementation project(':app-utils')
     implementation project(':card-kit')
-    implementation project(':movie-support')
+    implementation project(':data')
     implementation project(':image-support')
 
+    implementation libraries.androidAppCompat
     implementation libraries.androidRecyclerview
     implementation libraries.dagger
     implementation libraries.daggerAndroid
-    implementation libraries.rxAndroid
-    implementation libraries.rxJava
 
     kapt compilers.dagger
     kapt compilers.daggerAndroid
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
 }
