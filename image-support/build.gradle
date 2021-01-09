@@ -7,7 +7,6 @@ android androidConfigurations
 
 dependencies {
     implementation libraries.kotlinStd
-    implementation libraries.kotlinReflect
     implementation libraries.dagger
     implementation libraries.daggerAndroid
     implementation libraries.glide

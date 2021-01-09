@@ -4,8 +4,10 @@ import com.hungpham.card_kit.CardDataProvider
 import com.hungpham.card_kit.CardItem
 import com.hungpham.card_kit.CardType
 import com.hungpham.feed.ui.FeedOrder
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class FeedProvider(private val dataSources: Map<CardType, CardDataProvider>) {
 
@@ -25,5 +27,6 @@ class FeedProvider(private val dataSources: Map<CardType, CardDataProvider>) {
                 emit(data)
             }
         }
+            .flowOn(Dispatchers.IO)
     }
 }

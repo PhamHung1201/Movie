@@ -1,12 +1,8 @@
 package com.hungpham.feed.presenter
 
 import com.hungpham.feed.ui.FeedView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.cancel
 
 class FeedPresenter(
     private val view: FeedView,
@@ -19,7 +15,9 @@ class FeedPresenter(
         scope.launch {
             provider.fetch()
                 .collect {
-                    view.updateItems(it)
+                    withContext(Dispatchers.Main) {
+                        view.updateItems(it)
+                    }
                 }
         }
     }
